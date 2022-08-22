@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="root">
+        <div class="container">
+            <h1>List of users</h1>
+            <button class="add" @click="showingAddModal = true">Add New</button>
+            <div class="clear"></div>
+            <hr>
+            <table class="list">
+                <tr>
+                    <th>ID</th>
+                    <th>Username</th>
+                    <th>Email</th>
+                    <th>Phone</th>
+                    <th>Edit</th>
+                    <th>Delete</th>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>myusername</td>
+                    <td>myemail</td>
+                    <td>myphone</td>
+                    <td><button @click="showingEditModal = true">Edit</button></td>
+                    <td><button @click="showingDeleteModal = true">Delete</button></td>
+                </tr>
+            </table>
+        </div>
+        <div class="modal" id="addModal" v-if="showingAddModal">
+            <div class="modalContainer">
+                <div class="modalHeading">
+                    <p class="fleft"> Add New User </p>
+                    <button class="fright close" @click="showingAddModal = false">
+                        X
+                    </button>
+                    <div class="clear">
+                    </div>
+                </div>
+                <div class="modalContent">
+                    <table class="form">
+                        <tr>
+                            <th>
+                                username
+                            </th>
+                            <th> : </th>
+                            <td>
+                                <input type="text" name="">
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>
+                                email
+                            </th>
+                            <th> : </th>
+                            <td>
+                                <input type="text" name="">
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>
+                                Mobile
+                            </th>
+                            <th> : </th>
+                            <td>
+                                <input type="text" name="">
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>
+                            </th>
+                            <th> </th>
+                            <td>
+                                <button @click="showingAddModal = false">Save</button>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div class="modal" id="editModal" v-if="showingEditModal">
+            <div class="modalContainer">
+                <div class="modalHeading">
+                    <p class="fleft"> Edit User </p>
+                    <button class="fright close" @click="showingEditModal = false">
+                        X
+                    </button>
+                    <div class="clear">
+                    </div>
+                </div>
+                <div class="modalContent">
+                    <table class="form">
+                        <tr>
+                            <th>
+                                username
+                            </th>
+                            <th> : </th>
+                            <td>
+                                <input type="text" name="">
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>
+                                email
+                            </th>
+                            <th> : </th>
+                            <td>
+                                <input type="text" name="">
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>
+                                Mobile
+                            </th>
+                            <th> : </th>
+                            <td>
+                                <input type="text" name="">
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>
+                            </th>
+                            <th> </th>
+                            <td>
+                                <button @click="showingEditModal = false">Update</button>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div class="modal" id="deleteModal" v-if="showingDeleteModal">
+            <div class="modalContainer">
+                <div class="modalHeading">
+                    <p class="fleft"> Are You Sure? </p>
+                    <button class="fright close" @click="showingDeleteModal = false">
+                        X
+                    </button>
+                    <div class="clear">
+                    </div>
+                </div>
+                <div class="modalContent">
+                    You are going to delete ...
+                    <br><br><br>
+                    <button @click="showingDeleteModal = false">Yes</button>
+                    <button @click="showingDeleteModal = false">No</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
