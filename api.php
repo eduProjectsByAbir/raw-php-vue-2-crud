@@ -1,5 +1,5 @@
 <?php
-
+mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
 $conn = new mysqli('localhost', 'root', 'abir', 'vuephp');
 
 $conn->connect_error ? die('Could not connect to database') : '';
@@ -64,16 +64,18 @@ if($action == 'delete'){
 
 }
 
+// helper functions
+
+function test_input($data) {
+	global $conn;
+	$data = trim($data);
+	$data = stripslashes($data);
+	$data = htmlspecialchars($data);
+	$data = $conn->real_escape_string($data);
+	return $data;
+}
+
 $conn->close();
 header("Content-type: application/json");
 echo json_encode($res);
-
-	function test_input($data) {
-		$data = trim($data);
-		$data = stripslashes($data);
-		$data = htmlspecialchars($data);
-		return $data;
-	}
 die();
-
-?>
