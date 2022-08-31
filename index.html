@@ -29,11 +29,11 @@
                     <th>Edit</th>
                     <th>Delete</th>
                 </tr>
-                <tr>
-                    <td>1</td>
-                    <td>myusername</td>
-                    <td>myemail</td>
-                    <td>myphone</td>
+                <tr v-for="user in users">
+                    <td>{{ user.id }}</td>
+                    <td>{{ user.username }}</td>
+                    <td>{{ user.email }}</td>
+                    <td>{{ user.mobile }}</td>
                     <td><button @click="showingEditModal = true">Edit</button></td>
                     <td><button @click="showingDeleteModal = true">Delete</button></td>
                 </tr>
@@ -160,6 +160,7 @@
             </div>
         </div>
     </div>
+    <script src="./axios.js"></script>
     <script src="./vue.js"></script>
     <script src="./app.js"></script>
 </body>
