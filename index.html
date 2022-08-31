@@ -57,7 +57,7 @@
                             </th>
                             <th> : </th>
                             <td>
-                                <input type="text" name="">
+                                <input type="text" name="" v-model="newUser.username">
                             </td>
                         </tr>
                         <tr>
@@ -66,7 +66,7 @@
                             </th>
                             <th> : </th>
                             <td>
-                                <input type="text" name="">
+                                <input type="text" name="" v-model="newUser.email">
                             </td>
                         </tr>
                         <tr>
@@ -75,7 +75,7 @@
                             </th>
                             <th> : </th>
                             <td>
-                                <input type="text" name="">
+                                <input type="text" name="" v-model="newUser.mobile">
                             </td>
                         </tr>
                         <tr>
@@ -83,7 +83,7 @@
                             </th>
                             <th> </th>
                             <td>
-                                <button @click="showingAddModal = false">Save</button>
+                                <button @click="showingAddModal = false; saveUser();">Save</button>
                             </td>
                         </tr>
                     </table>
