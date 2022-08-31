@@ -57,7 +57,7 @@ if($action == 'delete'){
 
 	if($result){
 		$res['message'] = "User deleted successfully";
-	} else{
+	} else {
 		$res['error'] = true;
 		$res['message'] = "Could not delete user";
 	}
