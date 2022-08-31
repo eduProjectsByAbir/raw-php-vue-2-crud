@@ -20,9 +20,9 @@ if($action == 'read'){
 }
 
 if($action == 'create'){
-	$username = test_input($_POST['username']);
-	$email = test_input($_POST['email']);
-	$mobile = test_input($_POST['mobile']);
+	$username = validate_input($_POST['username']);
+	$email = validate_input($_POST['email']);
+	$mobile = validate_input($_POST['mobile']);
 
 	$result = $conn->query("INSERT INTO `users` (`username`, `email`, `mobile`) VALUES ('$username', '$email', '$mobile') ");
 
@@ -35,10 +35,10 @@ if($action == 'create'){
 }
 
 if($action == 'update'){
-	$id = test_input($_POST['id']);
-	$username = test_input($_POST['username']);
-	$email = test_input($_POST['email']);
-	$mobile = test_input($_POST['mobile']);
+	$id = validate_input($_POST['id']);
+	$username = validate_input($_POST['username']);
+	$email = validate_input($_POST['email']);
+	$mobile = validate_input($_POST['mobile']);
 
 	$result = $conn->query("UPDATE `users` SET `username` = '$username', `email` = '$email', `mobile` = '$mobile' WHERE `id` = '$id'");
 
@@ -52,7 +52,7 @@ if($action == 'update'){
 }
 
 if($action == 'delete'){
-	$id = test_input($_POST['id']);
+	$id = validate_input($_POST['id']);
 	$result = $conn->query("DELETE FROM `users` WHERE `id` = '$id'");
 
 	if($result){
@@ -64,9 +64,8 @@ if($action == 'delete'){
 
 }
 
-// helper functions
 
-function test_input($data) {
+function validate_input($data) {
 	global $conn;
 	$data = trim($data);
 	$data = stripslashes($data);

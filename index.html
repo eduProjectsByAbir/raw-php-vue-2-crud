@@ -14,6 +14,12 @@
             <button class="add" @click="showingAddModal = true">Add New</button>
             <div class="clear"></div>
             <hr>
+            <p class="errorMessage" v-if="errorMessage">
+                {{ errorMessage }}
+            </p>
+            <p class="successMessage" v-if="successMessage">
+                {{ successMessage }}
+            </p>
             <table class="list">
                 <tr>
                     <th>ID</th>

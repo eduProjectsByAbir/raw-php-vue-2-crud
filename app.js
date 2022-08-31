@@ -3,7 +3,10 @@ var app = new Vue({
 	data: {
 		showingAddModal: false,
 		showingEditModal: false,
-		showingDeleteModal: false
+		showingDeleteModal: false,
+		errorMessage: "",
+		successMessage: "",
+		users: []
 	},
 
 	mounted: function(){
