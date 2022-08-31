@@ -45,6 +45,7 @@ var app = new Vue({
 						app.errorMessage = response.data.error;
 					} else {
 						app.getAllUsers();
+						app.successMessage = response.data.message;
 					}
 				});
 		},
