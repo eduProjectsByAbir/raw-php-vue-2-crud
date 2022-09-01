@@ -12,6 +12,7 @@ var app = new Vue({
 			email: "",
 			mobile: ""
 		},
+		clickedUser: {},
 	},
 
 	mounted: function () {
@@ -23,7 +24,6 @@ var app = new Vue({
 		getAllUsers: function () {
 			axios.get("http://localhost/vuephp/api.php?action=read")
 				.then(function (response) {
-					// console.log(response);
 					if (response.data.error) {
 						app.errorMessage = response.data.error;
 					} else {
@@ -32,7 +32,6 @@ var app = new Vue({
 				});
 		},
 		saveUser: function () {
-			console.log('user');
 			var formData = app.toFormData(app.newUser);
 			app.newUser = {
 				username: "",
@@ -48,6 +47,9 @@ var app = new Vue({
 						app.successMessage = response.data.message;
 					}
 				});
+		},
+		selectUser(user) {
+			app.clickedUser = user;
 		},
 		toFormData: function (obj) {
 			var form_data = new FormData();

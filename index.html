@@ -34,7 +34,7 @@
                     <td>{{ user.username }}</td>
                     <td>{{ user.email }}</td>
                     <td>{{ user.mobile }}</td>
-                    <td><button @click="showingEditModal = true">Edit</button></td>
+                    <td><button @click="showingEditModal = true; selectUser(user);">Edit</button></td>
                     <td><button @click="showingDeleteModal = true">Delete</button></td>
                 </tr>
             </table>
@@ -108,7 +108,7 @@
                             </th>
                             <th> : </th>
                             <td>
-                                <input type="text" name="">
+                                <input type="text" name="" v-model="clickedUser.username">
                             </td>
                         </tr>
                         <tr>
@@ -117,7 +117,7 @@
                             </th>
                             <th> : </th>
                             <td>
-                                <input type="text" name="">
+                                <input type="text" name="" v-model="clickedUser.email">
                             </td>
                         </tr>
                         <tr>
@@ -126,7 +126,7 @@
                             </th>
                             <th> : </th>
                             <td>
-                                <input type="text" name="">
+                                <input type="text" name="" v-model="clickedUser.mobile">
                             </td>
                         </tr>
                         <tr>
