@@ -51,6 +51,20 @@ var app = new Vue({
 		selectUser(user) {
 			app.clickedUser = user;
 		},
+		updateUser: function () {
+			var formData = app.toFormData(app.clickedUser);
+
+			axios.post("http://localhost/vuephp/api.php?action=update", formData)
+				.then(function (response) {
+					app.clickedUser = {};
+					if (response.data.error) {
+						app.errorMessage = response.data.error;
+					} else {
+						app.getAllUsers();
+						app.successMessage = response.data.message;
+					}
+				});
+		},
 		toFormData: function (obj) {
 			var form_data = new FormData();
 			for (var key in obj) {
