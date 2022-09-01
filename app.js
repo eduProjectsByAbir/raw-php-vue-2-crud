@@ -38,15 +38,15 @@ var app = new Vue({
 				email: "",
 				mobile: ""
 			},
-			axios.post("http://localhost/vuephp/api.php?action=create", formData)
-				.then(function (response) {
-					if (response.data.error) {
-						app.errorMessage = response.data.error;
-					} else {
-						app.getAllUsers();
-						app.successMessage = response.data.message;
-					}
-				});
+				axios.post("http://localhost/vuephp/api.php?action=create", formData)
+					.then(function (response) {
+						if (response.data.error) {
+							app.errorMessage = response.data.error;
+						} else {
+							app.getAllUsers();
+							app.successMessage = response.data.message;
+						}
+					});
 		},
 		selectUser(user) {
 			app.clickedUser = user;
@@ -55,6 +55,20 @@ var app = new Vue({
 			var formData = app.toFormData(app.clickedUser);
 
 			axios.post("http://localhost/vuephp/api.php?action=update", formData)
+				.then(function (response) {
+					app.clickedUser = {};
+					if (response.data.error) {
+						app.errorMessage = response.data.error;
+					} else {
+						app.getAllUsers();
+						app.successMessage = response.data.message;
+					}
+				});
+		},
+		deleteUser: function () {
+			var formData = app.toFormData(app.clickedUser);
+
+			axios.post("http://localhost/vuephp/api.php?action=delete", formData)
 				.then(function (response) {
 					app.clickedUser = {};
 					if (response.data.error) {
